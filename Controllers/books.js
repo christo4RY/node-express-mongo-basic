@@ -1,6 +1,6 @@
 const { ObjectId } = require("mongodb");
 const allBooks = require("../Model/book");
-const apiMsg = require("../Helper/function");
+const { apiMsg } = require("../Helper/function");
 
 const index = async (req, res, next) => {
   res.status(200).json(apiMsg("Successfully", await allBooks.find()));

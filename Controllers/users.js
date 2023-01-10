@@ -1,5 +1,5 @@
 const User = require("../Model/auth");
-const apiMsg = require("../Helper/function");
+const { apiMsg } = require("../Helper/function");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const saltRounds = 10;
@@ -8,9 +8,9 @@ const signup = async (req, res) => {
   try {
     let password = await bcrypt.hash(req.body.password, saltRounds);
     await User.create({ ...req.body, password });
-    res.status(200).json(apiMsg("Successfully", await User.find()));
+    res.status(200).json(apiMsg("Register Successfully", await User.find()));
   } catch (err) {
-    res.json(apiMsg(err.errors));
+    res.json(apiMsg("email already exist", err.keyValue.email));
   }
 };
 

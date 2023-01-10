@@ -5,4 +5,4 @@ const apiMsg = (msg = "SuccessFully", data = []) => {
   };
 };
 
-module.exports = apiMsg;
+module.exports = { apiMsg };
