@@ -15,6 +15,15 @@ const auth = new Schema({
     type: String,
     required: true,
   },
+  avatar: {
+    type: String,
+    required: true,
+  },
+  created_at: {
+    type: Date,
+    required: true,
+    default: Date.now(),
+  },
 });
 
 const Auth = mongoose.model("user", auth);
